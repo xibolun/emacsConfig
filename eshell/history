@@ -1,0 +1,24 @@
+ll
+ls
+cd 
+cd projects/idcos-enterprise-ui/
+ll
+exit
+cal
+cal 11
+cal 2015
+exit
+ll
+cd 
+cd projects/idcos-platform-common/
+ll
+ls
+exit
+cal
+exit
+ssh root@10.211.55.8
+ssh root@10.211.55.8
+cal
+cal 2016
+ll
+exit
