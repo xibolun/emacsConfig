@@ -1,0 +1,12 @@
+# name: file head
+# key: head
+# --
+#+STARTUP: ${1:showall}
+#+OPTIONS: toc:${2:nil}
+#+OPTIONS: num:${3:nil}
+#+OPTIONS: html-postamble:${4:nil}
+#+LANGUAGE: zh-CN
+#+OPTIONS:   ^:{}
+#+TITLE: $5
+
+$0
