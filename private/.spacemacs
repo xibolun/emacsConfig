@@ -33,7 +33,6 @@ values."
      ;; 增强
      eyebrowse
      dockerfile
-     vagrant
      github
      tmux
 
@@ -46,16 +45,10 @@ values."
      yaml
 
      ;; 编程语言
-     emacs-lisp
-     go
-     python
-     elixir
-     erlang
      javascript
      html
 
      ;; 编程语言增强
-     gb
 
      (shell :variables
             shell-default-shell 'term
@@ -125,9 +118,9 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         solarized-light
                          spacemacs-dark
                          spacemacs-light
-                         solarized-light
                          solarized-dark
                          leuven
                          monokai
@@ -136,11 +129,13 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+
+   ;; 设置emacs字体
+   ;; dotspacemacs-default-font '("Monaco"
+   ;;                             :size 13
+   ;;                             :weight normal
+   ;;                             :width normal
+   ;;                             :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -228,7 +223,7 @@ values."
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
    dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
@@ -271,6 +266,9 @@ in `dotspacemacs/user-config'."
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   ;; magit 
   (setq-default git-magit-status-fullscreen t)
+
+  ;; org header-line bullet style
+  (setq org-bullets-bullet-list '("⓪" "①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩" "⑪" "⑫" "⑬" "⑭" "⑮" "⑯" "⑰" "⑱" "⑲" "⑳"));
 
   ; (setq evil-visual-state-cursor 'hbar) ; █
   ; (setq evil-insert-state-cursor 'hbar) ; ⎸
