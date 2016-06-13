@@ -43,6 +43,7 @@ values."
      dash
      smex
      deft
+     yaml
 
      ;; 编程语言
      emacs-lisp
@@ -268,6 +269,8 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  ;; magit 
+  (setq-default git-magit-status-fullscreen t)
 
   ; (setq evil-visual-state-cursor 'hbar) ; █
   ; (setq evil-insert-state-cursor 'hbar) ; ⎸
@@ -282,7 +285,7 @@ in `dotspacemacs/user-config'."
   ;   (setq evil-lisp-state-cursor `(,(spacemacs/state-color 'lisp) hbar)))
 
   ; (evil-set-default-cursors)
-  )
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -316,21 +319,23 @@ layers configuration. You are free to put any user code."
   ;; org-page
 
    (require 'org-page)
-   (setq op/repository-directory "/Users/admin/projects/emacsProject")   ;; the repository location
-   (setq op/site-domain "http://localhost/")         ;; your domain
+   (setq op/repository-directory "/Users/admin/private/myNote")   ;; the repository location
+   (setq op/site-domain "http://127.0.0.1")         ;; your domain
    ;;; the configuration below you should choose one, not both
    (setq op/personal-disqus-shortname "your_disqus_shortname")    ;; your disqus commenting system
    (setq op/personal-duoshuo-shortname "your_duoshuo_shortname")  ;; your duoshuo commenting system
 
    ;;中文与外文字体设置
-   (defun set-font (english chinese english-size chinese-size)
-     (set-face-attribute 'default nil :font
-                         (format   "%s:pixelsize=%d"  english english-size))
-     (dolist (charset '(kana han symbol cjk-misc bopomofo))
-       (set-fontset-font (frame-parameter nil 'font) charset
-                         (font-spec :family chinese :size chinese-size))))
+    (defun set-font (english chinese english-size chinese-size)
+      (set-face-attribute 'default nil :font
+                          (format   "%s:pixelsize=%d"  english english-size))
+      (dolist (charset '(kana han symbol cjk-misc bopomofo))
+        (set-fontset-font (frame-parameter nil 'font) charset
+                          (font-spec :family chinese :size chinese-size))))
 
-   (set-font   "WenQuanYi Zen Hei Mono" "WenQuanYi Zen Hei Mono" 14 14)
+    (set-font   "WenQuanYi Zen Hei Mono" "WenQuanYi Zen Hei Mono" 14 14)
+
+
   ;; 输入法切换
   (load-file "~/.emacs.d/private/fcitx.el")
   (require 'fcitx)
@@ -340,9 +345,6 @@ layers configuration. You are free to put any user code."
   (setq deft-extensions '("org" "md" "txt"))
   (setq deft-directory "~/Dropbox/notes")
 
-  ;; 语法检查
-  ;;(setq flycheck-check-syntax-automatically '(save mode-enabled idle-change))
-  ;;(setq flycheck-idle-change-delay 5)
 
 (defun evil-visual-update-x-selection (&optional buffer)
   "Update the X selection with the current visual region."
@@ -360,7 +362,7 @@ layers configuration. You are free to put any user code."
               (x-select-text (buffer-substring-no-properties
                               evil-visual-beginning
                               evil-visual-end))))))))
-  )
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
