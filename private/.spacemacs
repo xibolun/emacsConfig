@@ -318,6 +318,7 @@ layers configuration. You are free to put any user code."
 
    (require 'org-page)
    (setq op/repository-directory "/Users/admin/private/myNote")   ;; the repository location
+   (setq op/personal-github-link "https://github.com/kedadiannao220")
    (setq op/site-domain "http://127.0.0.1")         ;; your domain
    ;;; the configuration below you should choose one, not both
    (setq op/personal-disqus-shortname "your_disqus_shortname")    ;; your disqus commenting system
