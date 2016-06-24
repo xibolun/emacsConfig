@@ -8,7 +8,7 @@
 #+LANGUAGE: zh-CN
 #+OPTIONS:   ^:{}
 #+TITLE: $5
-#+TAG: $6
+#+TAGS: $6
 #+DATE: `(insert (format-time-string "%Y-%m-%e"))`
 
 
