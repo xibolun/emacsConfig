@@ -39,10 +39,11 @@ values."
      ;; 文档和帮助
      markdown
      org
-     dash
-     smex
-     deft
      yaml
+
+     ;; Private Configuration
+     ;; Load this from ~/.emacs.d/private
+     jekyll
 
      ;; 编程语言
      javascript
@@ -294,7 +295,7 @@ layers configuration. You are free to put any user code."
   ;;配置yasinppet
   (setq yas-snippet-dirs '(
                            "~/.emacs.d/private/snippets" ;personal snippets
-                           "~/.emacs.d/elpa/yasnippet-20160226.1359/snippets" ;default
+                           "~/.emacs.d/elpa/yasnippet-20160530.1721/snippets" ;default
                            ))
 
   ;; dummy
@@ -307,20 +308,35 @@ layers configuration. You are free to put any user code."
   (setq x-select-enable-clipboard nil)
   (define-key evil-motion-state-map [down-mouse-1] nil)
 
+  ;; --------------------------------------
+  ;; The Below words is myself configuration
+  ;; --------------------------------------
+
   ;; zsh
   ;; (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
+
+
+  ;; Config hyde.el
+  (add-to-list 'load-path "~/.emacs.d/private/Hyde/hyde*.el")
+  (require 'hyde)
+
+  ;; Config org-jekyll-mode
+  (add-to-list 'load-path "~/.emacs.d/private/org-jekyll-mode")   
+  (require 'org-jekyll-mode)
+  (setq org-jekyll/jekyll-project-root "/Users/admin/private/jekyllNote")
+  (setq org-jekyll/org-mode-project-root "/Users/admin/private/myNote")
 
   ;; Javascript
   (setq-default js2-basic-offset 4)
   (setq-default js-indent-level 4)
 
-  ;; org-page
-
+   ;; Config org-page
    (require 'org-page)
    (setq op/repository-directory "/Users/admin/private/myNote")   ;; the repository location
    (setq op/personal-github-link "https://github.com/kedadiannao220")
    (setq op/site-domain "http://127.0.0.1")         ;; your domain
    ;;; the configuration below you should choose one, not both
+   ;;; (setq op/theme 'org-page-theme-wy)
    (setq op/personal-disqus-shortname "your_disqus_shortname")    ;; your disqus commenting system
    (setq op/personal-duoshuo-shortname "your_duoshuo_shortname")  ;; your duoshuo commenting system
 
@@ -334,8 +350,7 @@ layers configuration. You are free to put any user code."
 
     (set-font   "WenQuanYi Zen Hei Mono" "WenQuanYi Zen Hei Mono" 14 14)
 
-
-  ;; 输入法切换
+  ;; --------  Config fcitx ----------------
   (load-file "~/.emacs.d/private/fcitx.el")
   (require 'fcitx)
   (fcitx-evil-turn-on)
