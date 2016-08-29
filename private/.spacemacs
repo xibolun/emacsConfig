@@ -332,11 +332,14 @@ layers configuration. You are free to put any user code."
 
    ;; Config org-page
    (require 'org-page)
-   (setq op/repository-directory "/Users/admin/private/myNote")   ;; the repository location
+   ;; the repository location
+   (setq op/repository-directory "/Users/admin/private/myNote")
+   ;; config your github account
    (setq op/personal-github-link "https://github.com/kedadiannao220")
    (setq op/site-domain "http://127.0.0.1")         ;; your domain
    ;;; the configuration below you should choose one, not both
-   ;;; (setq op/theme 'org-page-theme-wy)
+   (setq op/theme-root-directory "~/.emacs.d/private/org-page/themes/")
+   (setq op/theme 'kactus)
    (setq op/personal-disqus-shortname "your_disqus_shortname")    ;; your disqus commenting system
    (setq op/personal-duoshuo-shortname "your_duoshuo_shortname")  ;; your duoshuo commenting system
 
