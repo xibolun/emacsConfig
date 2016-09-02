@@ -288,7 +288,7 @@ in `dotspacemacs/user-config'."
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
+This function is called at the very end of Spacemacs ninitialization after
 layers configuration. You are free to put any user code."
   (setq backup-directory-alist (quote (("." . "~/.emacs.dBak/backupfiles"))))
 
@@ -315,16 +315,20 @@ layers configuration. You are free to put any user code."
   ;; zsh
   ;; (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
+  ;; Config org-mode
+  ;; 配置org-mode的source code语法高亮
+  ;; (require 'org)
+  ;; (setq org-src-fontify-natively t)
 
   ;; Config hyde.el
-  (add-to-list 'load-path "~/.emacs.d/private/Hyde/hyde*.el")
-  (require 'hyde)
+  ;;(add-to-list 'load-path "~/.emacs.d/private/Hyde/hyde*.el")
+  ;;(require 'hyde)
 
-  ;; Config org-jekyll-mode
-  (add-to-list 'load-path "~/.emacs.d/private/org-jekyll-mode")   
-  (require 'org-jekyll-mode)
-  (setq org-jekyll/jekyll-project-root "/Users/admin/private/jekyllNote")
-  (setq org-jekyll/org-mode-project-root "/Users/admin/private/myNote")
+  ;;;; Config org-jekyll-mode
+  ;;(add-to-list 'load-path "~/.emacs.d/private/org-jekyll-mode")   
+  ;;(require 'org-jekyll-mode)
+  ;;(setq org-jekyll/jekyll-project-root "/Users/admin/private/jekyllNote")
+  ;;(setq org-jekyll/org-mode-project-root "/Users/admin/private/myNote")
 
   ;; Javascript
   (setq-default js2-basic-offset 4)
